@@ -26,3 +26,12 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+#visual studio files
+*.suo
+*.user
+*.sln.docstates
+.ntvs_analysis.dat
+
+#tsd
+typings/
