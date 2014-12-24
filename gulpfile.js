@@ -3,6 +3,8 @@ var tsOrder = require('./index');
 var angularSort = require('gulp-angular-filesort');
 var ts = require('gulp-typescript');
 var lister = require('./helpers/file-lister');
+var concat = require('gulp-concat');
+var ngDep = require('ng-dependencies');
 
 var tsProject = ts.createProject({
     sortOutput: false,
@@ -28,5 +30,7 @@ gulp.task('default', function () {
             .pipe(lister('after tsc'))
             .pipe(angularSort())
             .pipe(lister('after ng-sort'))
+            .pipe(concat('combined.js'))
+            .pipe(gulp.dest('./output'))
             ;
 });
